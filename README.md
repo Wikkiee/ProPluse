@@ -37,9 +37,10 @@ Completed:
 - Ability to create new courses.
 
 Pending:
-- Integration with the backend server.
-- Authentication flow.
 - Chapter creation functionality.
+- Course Mapping
+- Forum implementation
+- Responsiveness 
 - Further improvements and bug fixes.
 
 ### Note:
