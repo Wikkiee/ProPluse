@@ -29,9 +29,8 @@ const Register = () => {
         setErrorMessage(response.data.errorMessage);
       }
       if (response.data.isSuccess) {
-        // navigate("/");
+        navigate("/");
       }
-      // Updated state with response data
     } catch (error) {
       console.error(error);
     }

@@ -39,7 +39,6 @@ const Login = () => {
         );
         navigate("/");
       }
-      // Updated state with response data
     } catch (error) {
       console.error(error);
     }

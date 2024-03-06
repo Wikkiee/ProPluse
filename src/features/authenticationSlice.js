@@ -19,7 +19,7 @@ export const authenticationSlice = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
+
 export const { setAuthenticationStatus } = authenticationSlice.actions;
 
 export default authenticationSlice.reducer;
