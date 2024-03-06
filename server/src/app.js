@@ -198,7 +198,7 @@ app.post("/course/newcourse", upload.single("image"), (req, res) => {
   connection.query(
     "INSERT INTO courses (userId,courseTitle,courseCategory,courseDuration,courseDescription,thumbnailimage) VALUES (?,?,?,?,?,?)",
     [
-      1,
+      req.body.userId,
       req.body.courseTitle,
       req.body.courseCategory,
       req.body.courseDuration,

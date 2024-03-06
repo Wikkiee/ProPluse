@@ -8,10 +8,17 @@ const Navbar = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="w-full py-4 bg-[#282828] px-12 absolute top-0 ">
+      <div className="w-full py-4 bg-[#282828] px-12 absolute top-0 sticky ">
         <div className="inline w-full h-full flex justify-end">
           <div className="w-full h-auto flex items-center">
-            <h1 className="inline font-bold mr-20">ProPluse</h1>
+            <h1
+              onClick={() => {
+                navigate("/");
+              }}
+              className="inline font-bold mr-20 hover:cursor-pointer"
+            >
+              ProPluse
+            </h1>
             <h1>Courses</h1>
           </div>
           <div>

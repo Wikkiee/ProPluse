@@ -28,7 +28,7 @@ const DashBoard = () => {
                 console.log("Clicked");
                 navigate("/create_new_course");
               }}
-              className="bg-[#282828] w-[180px] h-[180px] flex justify-center items-center rounded-[5px]"
+              className="bg-[#282828] w-[180px] h-[180px] flex justify-center items-center rounded-[5px] hover:cursor-pointer"
             >
               <img className="w-[70px] h-[70px]" src={AddIcon} />
             </div>
@@ -42,7 +42,7 @@ const DashBoard = () => {
                 console.log("Clicked");
                 navigate("/mycourses");
               }}
-              className="bg-[#282828] w-[180px] h-[180px] flex justify-center items-center rounded-[5px]"
+              className="bg-[#282828] w-[180px] h-[180px] flex justify-center items-center rounded-[5px] hover:cursor-pointer"
             >
               <img className="w-[70px] h-[70px]" src={BookmarkIcon} />
             </div>
