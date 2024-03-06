@@ -97,6 +97,16 @@ const Login = () => {
                   </span>
                 }
               />
+              <div className="text-center">
+                <p
+                  onClick={() => {
+                    navigate("/register");
+                  }}
+                  className="text-sm hover:cursor-pointer"
+                >
+                  Register new account
+                </p>
+              </div>
             </div>
           </div>
         </div>

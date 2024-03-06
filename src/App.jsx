@@ -4,6 +4,7 @@ import Register from "./pages/Register/Register.jsx";
 import { Routes, Route } from "react-router-dom";
 import CreateCourse from "./pages/CreateCourse/CreateCourse.jsx";
 import MyCourses from "./pages/MyCourse/MyCourses.jsx";
+import PageNotFound from "./pages/PageNotFound/PageNotFound.jsx";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/create_new_course" element={<CreateCourse />} />
         <Route path="/mycourses" element={<MyCourses />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </>
   );

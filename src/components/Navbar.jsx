@@ -1,7 +1,11 @@
 import { useSelector } from "react-redux";
 import UserIcon from "../assets/UserIcon.svg";
+import { useNavigate } from "react-router-dom";
 const Navbar = () => {
-  const { userName } = useSelector((state) => state.authentication);
+  const { isAuthenticated, userName } = useSelector(
+    (state) => state.authentication
+  );
+  const navigate = useNavigate();
   return (
     <>
       <div className="w-full py-4 bg-[#282828] px-12 absolute top-0 ">
@@ -11,12 +15,23 @@ const Navbar = () => {
             <h1>Courses</h1>
           </div>
           <div>
-            <div className="flex items-center">
-              <span>
-                <img src={UserIcon} className="w-12 h-12" />
-              </span>
-              <h3 className="ml-3">{userName}</h3>
-            </div>
+            {isAuthenticated ? (
+              <div className="flex items-center">
+                <span>
+                  <img src={UserIcon} className="w-12 h-12" />
+                </span>
+                <h3 className="ml-3">{userName}</h3>
+              </div>
+            ) : (
+              <button
+                onClick={() => {
+                  navigate("/login");
+                }}
+                className="bg-[#171717] px-6 py-2 rounded"
+              >
+                Login
+              </button>
+            )}
           </div>
         </div>
       </div>

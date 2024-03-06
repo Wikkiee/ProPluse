@@ -4,6 +4,7 @@ import BookmarkIcon from "../../assets/BookmarkIcon.svg";
 import { useNavigate } from "react-router-dom";
 import { useGetUserAuthenticationStatusQuery } from "../../app/api/authenticationApiSlice";
 import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
 const DashBoard = () => {
   const { data } = useGetUserAuthenticationStatusQuery();
 
@@ -11,6 +12,11 @@ const DashBoard = () => {
     (stata) => stata.authentication
   );
   const navigate = useNavigate();
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate("/login");
+    }
+  });
   return (
     <div>
       <Navbar />

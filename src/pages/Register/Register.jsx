@@ -30,7 +30,6 @@ const Register = () => {
       }
       if (response.data.isSuccess) {
         // navigate("/");
-        
       }
       // Updated state with response data
     } catch (error) {
@@ -112,6 +111,16 @@ const Register = () => {
                   </span>
                 }
               />
+              <div className="text-center">
+                <p
+                  onClick={() => {
+                    navigate("/login");
+                  }}
+                  className="text-sm hover:cursor-pointer"
+                >
+                  Already have account ?
+                </p>
+              </div>
             </div>
           </div>
         </div>
