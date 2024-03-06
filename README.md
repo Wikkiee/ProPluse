@@ -41,10 +41,10 @@ Completed:
 - Login and register functionalities.
 - Dashboard layout with options.
 - Ability to create new courses.
+- Course Mapping
 
 Pending:
 - Chapter creation functionality.
-- Course Mapping
 - Forum implementation
 - Responsiveness 
 - Further improvements and bug fixes.
@@ -60,6 +60,7 @@ Due to time constraints (1-day deadline), only 50% of the project has been compl
 ![Screenshot 2](https://i.imgur.com/ZMqJi1m.png)
 ![Screenshot 3](https://i.imgur.com/ZeZIUJt.png)
 ![Screenshot 4](https://i.imgur.com/qpgPZ2V.png)
+![Screenshot 4](https://i.imgur.com/gcpNffY.png)
 
 
 ### How to Run:
