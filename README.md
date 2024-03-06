@@ -14,7 +14,7 @@ Figma UI Design : [click me](https://www.figma.com/file/k2dY0SwgoJvvRC7STvNcKq/R
 
 - **Login and Register Page:**
   - Manual username and password entry.
-  - Google OAuth login option.
+  - Google OAuth login option (Pending).
 
 - **Dashboard Page:**
   - Upon successful login, users are redirected to the dashboard.
