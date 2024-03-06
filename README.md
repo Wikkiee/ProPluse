@@ -9,6 +9,12 @@ The initial stage of every project is to design a perfect plan so that we can co
 
 Figma UI Design : [click me](https://www.figma.com/file/k2dY0SwgoJvvRC7STvNcKq/React-Assignment?type=design&mode=design&t=yHsQDHvJysOsmDyx-1)
 
+### Technologies used:
+- React.Js
+- Redux Tool Kit Query
+- Node.js
+- Express.js
+- MySQL
 
 ### Features Implemented:
 
