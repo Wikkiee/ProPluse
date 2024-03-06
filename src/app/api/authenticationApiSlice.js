@@ -28,6 +28,13 @@ export const authenticationApiSlice = createApi({
         credentials: "include",
       }),
     }),
+    postGoogleOAuthLogin: builder.mutation({
+      query: (data) => ({
+        url: "/api/v1/oauth",
+        method: "POST",
+        body: data,
+      }),
+    }),
   }),
 });
 
@@ -35,4 +42,5 @@ export const {
   useGetUserAuthenticationStatusQuery,
   usePostRegisterationMutation,
   usePostLoginMutation,
+  usePostGoogleOAuthLoginMutation,
 } = authenticationApiSlice;

@@ -240,6 +240,42 @@ app.get("/api/v1/course/user/:userId", (req, res) => {
   );
 });
 
+app.post("/api/v1/oauth", (req, res) => {
+  connection.query(
+    `SELECT userEmail from Users WHERE userEmail='${req.body.userEmail}'`,
+    (err, result, flds) => {
+      if (result.length < 1) {
+        connection.query(
+          "INSERT INTO Users(userName,userEmail) VALUES(?,?)",
+          [req.body.userName, req.body.userEmail],
+          (err, result, flds) => {
+            if (err) throw err;
+          }
+        );
+      }
+    }
+  );
+  connection.query(
+    `SELECT userId from Users WHERE userEmail='${req.body.userEmail}'`,
+    (err, result, flds) => {
+      if (err) throw err;
+      console.log();
+      res.setHeader("Content-Type", "application/json");
+      res.send(
+        JSON.stringify({
+          isSuccess: true,
+          isError: false,
+          errorMessage: null,
+          data: {
+            userId: result[0].userId,
+            userName: req.body.userName,
+          },
+        })
+      );
+    }
+  );
+});
+
 app.listen(process.env.PORT, (err) => {
   if (err) {
     console.log(err);

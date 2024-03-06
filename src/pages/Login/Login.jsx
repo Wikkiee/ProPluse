@@ -4,9 +4,15 @@ import FormButton from "../../components/FormButton";
 import GoogleIcon from "../../assets/GoogleIcon.svg";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { usePostLoginMutation } from "../../app/api/authenticationApiSlice";
+import {
+  usePostLoginMutation,
+  usePostGoogleOAuthLoginMutation,
+} from "../../app/api/authenticationApiSlice";
 import { useDispatch } from "react-redux";
 import { setAuthenticationStatus } from "../../features/authenticationSlice.js";
+import { useGoogleOneTapLogin } from "@react-oauth/google";
+import { useGoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
 const Login = () => {
   const [userEmail, setEmail] = useState("");
   const [userPassword, setPassword] = useState("");
@@ -43,6 +49,40 @@ const Login = () => {
       console.error(error);
     }
   };
+
+  const [usePostGoogleOAuthLogin] = usePostGoogleOAuthLoginMutation();
+  useGoogleOneTapLogin({
+    onSuccess: async (credentialResponse) => {
+      const decoded = jwtDecode(credentialResponse.credential);
+      try {
+        const response = await usePostGoogleOAuthLogin({
+          userEmail: decoded.email,
+          userName: decoded.name,
+        });
+        if (response.data.isSuccess) {
+          dispatch(
+            setAuthenticationStatus({
+              isAuthenticated: true,
+              userId: response.data.data.userId,
+              userName: response.data.data.userName,
+            })
+          );
+          navigate("/");
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    onError: () => {
+      console.log("Login Failed");
+    },
+  });
+
+  const login = useGoogleLogin({
+    onSuccess: (tokenResponse) => {
+      console.log(tokenResponse);
+    },
+  });
 
   return (
     <>
@@ -88,14 +128,17 @@ const Login = () => {
               >
                 Submit
               </button>
-              <FormButton
-                Text={
-                  <span>
-                    <img className="w-5 inline mr-2" src={GoogleIcon} />{" "}
-                    Continue with Google{" "}
-                  </span>
-                }
-              />
+              <button
+                onClick={() => {
+                  login();
+                }}
+                className={`bg-[#000000] w-full py-4 font-bold text-[14px] rounded-[5px] my-2 text-[#C7C7C7]`}
+              >
+                <span>
+                  <img className="w-5 inline mr-2" src={GoogleIcon} /> Continue
+                  with Google{" "}
+                </span>
+              </button>
               <div className="text-center">
                 <p
                   onClick={() => {

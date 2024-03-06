@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import { usePostRegisterationMutation } from "../../app/api/authenticationApiSlice";
 import { useNavigate } from "react-router-dom";
+import { useGoogleOneTapLogin } from "@react-oauth/google";
 const Register = () => {
   const [userName, setUserName] = useState("");
   const [userEmail, setEmail] = useState("");
@@ -35,7 +36,14 @@ const Register = () => {
       console.error(error);
     }
   };
-
+  useGoogleOneTapLogin({
+    onSuccess: (credentialResponse) => {
+      console.log(credentialResponse);
+    },
+    onError: () => {
+      console.log("Login Failed");
+    },
+  });
   return (
     <>
       <div className="w-full h-auto">

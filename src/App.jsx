@@ -7,6 +7,7 @@ import MyCourses from "./pages/MyCourse/MyCourses.jsx";
 import PageNotFound from "./pages/PageNotFound/PageNotFound.jsx";
 
 function App() {
+
   return (
     <>
       <Routes>
