@@ -1,7 +1,8 @@
 
 ## ProPluse Assignment
 
-This project aims to develop a responsive and interactive React frontend application connected to a backend server for data storage and authentication.
+The task is to complete as much of the project as possible within a day, aiming for the highest percentage of completion.
+
 
 ### UI Design:
 
