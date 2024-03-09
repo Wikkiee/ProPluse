@@ -1,5 +1,5 @@
 
-## ProPluse Assignment
+## ProPlus logics solutions - ReactJS Interview Task
 
 The task is to complete as much of the project as possible within a day, aiming for the highest percentage of completion.
 
